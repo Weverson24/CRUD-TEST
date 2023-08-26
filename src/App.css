@@ -1,0 +1,59 @@
+.App {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.App-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  gap: 20px;
+}
+.inpText {
+  height: 30px;
+  width: 15rem;
+  padding: 7px;
+  background: rgba(202, 199, 199, 0.404);
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.23);
+  border-radius: 5px;
+  border: none;
+}
+li {
+  margin: 10px;
+  padding: 13px;
+  border-radius: 3px;
+  background-color: rgba(205, 205, 206, 0.521);
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.23);
+
+  list-style: none;
+}
+.fechar {
+  background: rgb(240, 71, 71);
+  color: white;
+  border-radius: 5px;
+  margin-left: 10px;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.23);
+  position: absolute;
+  top: -2px;
+  right: -4px;
+}
+.editar {
+  background: rgba(100, 139, 90, 0.938);
+  color: white;
+  border-radius: 5px;
+  margin-left: 10px;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.23);
+  position: absolute;
+  bottom: -2px;
+  left: -4px;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
