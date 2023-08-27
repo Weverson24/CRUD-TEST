@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import tasks from '../tasks.json';
 import './App.css';
 
@@ -18,12 +18,16 @@ function App() {
       titulo: tarefas,
     };
 
-    setTask([...task, dadosJson]);
+    const updateTasks = [...task, dadosJson];
+    setTask(updateTasks);
+
+    localStorage.setItem('tasks', JSON.stringify(updateTasks));
   };
   // DELETANDO TASKS COM A ID
   const handleremoverTask = (id) => {
     const novatask = task.filter((tas) => tas.id !== id);
     setTask(novatask);
+    localStorage.setItem('tasks', JSON.stringify(novatask));
   };
 
   //VAMOS ALTERAR UMA TASK
@@ -38,7 +42,16 @@ function App() {
     }
 
     setTask(todos);
+    localStorage.setItem('tasks', JSON.stringify(todos));
   };
+
+  useEffect(() => {
+    let localstorageTasks = localStorage.getItem('tasks');
+    if (localstorageTasks) {
+      localstorageTasks = JSON.parse(localstorageTasks);
+      setTask(localstorageTasks);
+    }
+  }, []);
 
   return (
     <div className="App">
@@ -56,8 +69,8 @@ function App() {
       </form>
       <ul>
         {task.map((tas) => (
-          <div className="container">
-            <li key={tas.id}>{tas.titulo}</li>
+          <div className="container" key={tas.id}>
+            <li>{tas.titulo}</li>
             <button
               className="fechar"
               onClick={() => handleremoverTask(tas.id)}
